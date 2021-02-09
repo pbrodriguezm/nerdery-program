@@ -2,11 +2,11 @@
  an array of arrays into a single array that has all the elements of the original arrays.
 */
 
-
 let arrays = [[1, 2, 3], [4, 5], [6]];
-console.log(arrays.reduce( (previous, current) => {
-    return previous.concat(current)
-})
+console.log(
+  arrays.reduce((previous, current) => {
+    return previous.concat(current);
+  })
 );
 
 // Your code here.
