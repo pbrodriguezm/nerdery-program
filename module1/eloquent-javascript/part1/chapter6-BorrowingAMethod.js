@@ -7,7 +7,7 @@
 */
 
 let map = {one: true, two: true, hasOwnProperty: function name(params) {
-    return Object.prototype.hasOwnProperty.call(map,params);
+ return Object.prototype.hasOwnProperty.call(map,params);
 }};
 
 // Fix this call
