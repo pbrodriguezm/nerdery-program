@@ -83,9 +83,19 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 // CODE HERE...
 
+class Vehicle {
+  gasRemaining;
 
+  constructor() {
+    this.gasRemaining = 100;
+  }
+  drive() {
+    this.gasRemaining = 75;
+  }
+}
 
-
+let charger = new Vehicle();
+let mustang = new Vehicle();
 
 // -----------------------------------------------------------------------------
 
