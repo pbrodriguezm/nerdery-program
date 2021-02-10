@@ -25,6 +25,14 @@ function withBoxUnlocked(body) {
   if (!unLocked) {
     return body();
   }
+  box.unlock();
+  try {
+    return body();
+  } catch {
+    box.unlock();
+  } finally {
+    box.lock();
+  }
 }
 
 withBoxUnlocked(function () {
