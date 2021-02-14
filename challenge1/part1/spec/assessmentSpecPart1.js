@@ -96,10 +96,10 @@ describe('Part 1:', function(){
       expect(mustang).toEqual(jasmine.any(Object));
     })
     it('should have a working drive method', function(){
-      var gasInTank = mustang.gasRemaining
-      mustang.drive()
+      var gasInTank = mustang.gasRemaining //100
+      mustang.drive() //75
       var couldDriveIt = false
-      if(mustang.gasRemaining === gasInTank - 25){
+      if(mustang.gasRemaining === gasInTank - 25){ // 75 === 100-25
         couldDriveIt = true
       }
       expect(couldDriveIt).toBe(true)

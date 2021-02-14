@@ -91,6 +91,7 @@ class Vehicle {
   }
   drive() {
     this.gasRemaining = 75;
+    console.log(this.gasRemaining);
   }
 }
 
