@@ -38,7 +38,8 @@ document.body.appendChild(para);
 
 // const age = 100.5;
 // const name = 'wes';
-
+//Math.ceil(4.000000001)
+//-> 5 return next number
 // const a = 10;
 // const b = 20;
 /*
@@ -50,7 +51,22 @@ console.log(`Each kids gets ${eachKidGets}`);
 const price = 1034;
 */
 
-/*
+//ANOTATION EXPONENTITATION
+console.log(3 ** 4);
+// expected output: 81
+
+console.log(10 ** -2);
+// expected output: 0.01
+
+console.log(2 ** 3 ** 2);
+// expected output: 512
+
+console.log((2 ** 3) ** 2);
+// expected output: 64
+
+
+
+//OBJECTS
 const person = {
   first: 'wes',
   last: 'bos',
@@ -70,7 +86,7 @@ const teller = {
 }
 teller.first = 'Teller';
 teller.last = null;
-*/
+
 
 let isDrawing = false;
 let age = 18;
