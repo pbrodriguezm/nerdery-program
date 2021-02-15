@@ -65,6 +65,7 @@ const wes = {
 
 
 // click callback
+//The method querySelector() returns the first Element within the document of css
 const button = document.querySelector(".clickMe");
 
 function handleClick() {
