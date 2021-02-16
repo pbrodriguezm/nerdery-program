@@ -98,6 +98,7 @@ class Vehicle {
 let charger = new Vehicle();
 let mustang = new Vehicle();
 
+
 // -----------------------------------------------------------------------------
 
 // *************
@@ -116,10 +117,17 @@ let mustang = new Vehicle();
 // and should neither modify them nor break when encountering them.
 
 
-
-
-// CODE HERE...
-
+(function () {
+  String.prototype.grammarPolice = function () {
+    let resultValue = "";
+    this.split(" ").forEach((elementValue) => {
+      resultValue +=
+        " " + elementValue.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
+    });
+    //puede ser un reduce y verificar si el anterior es en blanco ponerle upperCase
+    return resultValue.trim();
+  };
+})();
 
 
 // *************
@@ -136,8 +144,15 @@ let mustang = new Vehicle();
 
 // In all other cases, return "Different values"
 
-// CODE HERE...
 
+function valueType(valueA, valueB) {
+  if (valueA === valueB) {
+    return "Exactly the same";
+  } else {
+    if (valueA == valueB) return "Same value, different types";
+  }
+  return "Different values";
+}
 
 
 // *************
@@ -151,4 +166,6 @@ let mustang = new Vehicle();
 
 var theAnswer = "Unknown";
 
-// CODE HERE...
+function promiseCatcher(value) {
+  return theAnswer;
+}
