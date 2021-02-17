@@ -42,6 +42,10 @@ function noWeakLink() {
   return $http({
     method: 'GET',
     url: '/api/users'
+  }).then( (res) => {
+    firstUser = res.data[0];
+    thirdUser = res.data[2];
+    return res.data[9];
   })
   // CODE HERE...
 
@@ -188,17 +192,23 @@ function frodo(startingHungerValue, startingDangerValue) {
   let startingHungerValue_ = startingHungerValue;
   let startingDangerValue_ = startingDangerValue;
   return {
-    dinnerOverFire : () => { 
-      startingHungerValue_ -= 25; 
-      startingDangerValue_ += 40; 
-      let objt = { hunger:  startingHungerValue_, danger: startingDangerValue_ };
-      console.log(objt)
+    dinnerOverFire: () => {
+      startingHungerValue_ -= 25;
+      startingDangerValue_ += 40;
 
-      return objt;
+      return {
+        hunger: startingHungerValue_ < 0 ? 0 : startingHungerValue_,
+        danger: startingDangerValue_ > 100 ? 100 : startingDangerValue_,
+      };
     },
-     hidingInBush : () => { 
-       return { hunger:  startingHungerValue_ + 35, danger: startingDangerValue - 20}
-    }
-  }
-  
+    hidingInBush: () => {
+      startingHungerValue_ += 35;
+      startingDangerValue_ -= 20;
+
+      return {
+        hunger: startingHungerValue_ > 100 ? 100 : startingHungerValue_,
+        danger: startingDangerValue_ < 0 ? 0 : startingDangerValue_,
+      };
+    },
+  };
 }
