@@ -83,21 +83,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 // CODE HERE...
 
-class Vehicle {
-  gasRemaining;
-
-  constructor() {
-    this.gasRemaining = 100;
-  }
-  drive() {
-    this.gasRemaining = 75;
-    console.log(this.gasRemaining);
+function Vehicle(){
+  this.gasRemaining = 100;
+  this.drive = function(){
+  this.gasRemaining -= 25;
   }
 }
+Vehicle.prototype.drive = function(){
+  return drive()
+}
+var charger = new Vehicle();
+var mustang = new Vehicle();
 
-let charger = new Vehicle();
-let mustang = new Vehicle();
-
+charger.drive();
+mustang.drive();
+mustang.drive();
 
 // -----------------------------------------------------------------------------
 
@@ -116,7 +116,7 @@ let mustang = new Vehicle();
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
 
-//"hola".grammarPolice()
+
 
 (function () {
   String.prototype.grammarPolice = function () {
@@ -125,7 +125,7 @@ let mustang = new Vehicle();
       resultValue +=
         " " + elementValue.toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
     });
-    //puede ser un reduce y verificar si el anterior es en blanco ponerle upperCase
+    
     return resultValue.trim();
   };
 })();

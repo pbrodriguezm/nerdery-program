@@ -97,6 +97,7 @@ describe('Part 1:', function(){
     })
     it('should have a working drive method', function(){
       var gasInTank = mustang.gasRemaining //100
+      console.log('gasInTank: ',gasInTank);
       mustang.drive() //75
       var couldDriveIt = false
       if(mustang.gasRemaining === gasInTank - 25){ // 75 === 100-25
@@ -106,6 +107,7 @@ describe('Part 1:', function(){
     })
     it('should have the right amount of gas', function(){
       var enoughgasRemaining = false
+      console.log('mustang.gasRemaining: ',mustang.gasRemaining);
       if(mustang.gasRemaining === 25){
         enoughgasRemaining = true;
       }
