@@ -167,13 +167,8 @@ function valueType(valueA, valueB) {
 
 var theAnswer = "Unknown";
 
-function promiseCatcher(value) {
-  try {
-
-  }catch {
-
-  }finally {
-  
-  }
-  return theAnswer;
+function promiseCatcher(param) {
+  param.then((promise) => {
+    this.theAnswer = promise;
+  });
 }

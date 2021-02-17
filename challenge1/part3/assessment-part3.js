@@ -14,6 +14,13 @@
 
 // CODE HERE...
 
+function callBinding(magicAnimals = [], updateAnimal, id) {
+
+    const animal = magicAnimals.find((magicAnimal) => magicAnimal.id == id);
+    let functionBind = updateAnimal.bind(animal);
+    return functionBind('Trogdor');
+}
+  
 
 
 // *************
@@ -29,7 +36,20 @@
 
 // CODE HERE...
 
+// function applyBinding(magicAnimals = [], updateAnimal, id) {
+    
+//     return {
+//         favorites: magicAnimals.find(magicAnimal => magicAnimal.id == id).favorites,
+//         apply: updateAnimal()
+//     }
+// }
 
+function applyBinding(magicAnimals = [], updateAnimal, id) {
+    const animal = magicAnimals.find((magicAnimal) => magicAnimal.id == id);
+    let functionBind = updateAnimal.bind(animal);
+    return functionBind(["being majestic", " eating rainbows"]);
+  }
+  
 
 // *************
 // * PROBLEM 3 *
@@ -49,6 +69,14 @@ var foo;
 
 // CODE HERE...
 
+function promiseMe($q) {
+  return new Promise((resolve, reject) => {
+    setTimeout(function () {
+      resolve("bar");
+    }, 20);
+  });
+}
+
 
 
 // *************
@@ -64,3 +92,33 @@ var foo;
 // and then resolve the array as you complete your promise.
 
 // CODE HERE...
+
+
+
+function emailList($q, $http) {
+  return new Promise((resolve, reject) => {
+    emails = [];
+    $http({
+      method: "GET",
+      url: "/api/users",
+    }).then((res) => {
+      res.data.forEach((element) => {
+        emails.push(element.email);
+      });
+      resolve(emails);
+    });
+  });
+}
+
+
+ // return $q(function (resolve, reject) {
+  //   $http({
+  //     method: "GET",
+  //     url: "/api/users",
+  //   }).then((res) => {
+  //     resolve(res);
+  //   });
+  // });
+
+   
+    

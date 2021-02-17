@@ -98,7 +98,7 @@ describe('Part 3:', function() {
     });
 
     var $q = Q;
-    var promise = emailList($q, $http);
+    let promise = emailList($q, $http);
 
     it('should return a promise', function() {
 			expect(promise.then)
