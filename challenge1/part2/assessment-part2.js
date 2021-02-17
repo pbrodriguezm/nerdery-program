@@ -38,7 +38,7 @@ var firstUser = 'don\'t touch this string!';
 var thirdUser = 'don\'t touch this string, either!';
 
 function noWeakLink() {
-
+  
   return $http({
     method: 'GET',
     url: '/api/users'
@@ -66,15 +66,21 @@ function noWeakLink() {
 // When boundToElephant gets called, it should return this exact string:
 // 'My name is Horton and I am very heavy!' (The above instructions should make this work.  No code needed for this paragraph)
 
+
+
+
+//let boundToElephant='My name is Horton and I am very heavy!';
+
 var elephant = {
   name: 'Horton'
 }
-function large() {
 
+function large() {
   return 'My name is ' + this.name + ' and I am very heavy!'
 }
-// CODE HERE...
 
+// CODE HERE...
+let boundToElephant = large.bind(elephant);
 
 
 // *************
@@ -89,7 +95,17 @@ function large() {
 
 // CODE HERE...
 
+let value = {
+  capacity: {},
+  crew: this.capacity,
+  workerPopulation: Infinity,
+};
 
+function deathStar(cap, cre) {
+  value.capacity = cap;
+  value.workerPopulation = cre.workerPopulation;
+  return value.capacity.bind(value);
+}
 
 // *************
 // * PROBLEM 4 *
@@ -104,7 +120,11 @@ function large() {
 
 // CODE HERE...
 
-
+function accountingOffice(assets) {
+  return (liabilities) => {
+    return liabilities + assets;
+  };
+}
 
 // *************
 // * PROBLEM 5 *
@@ -129,7 +149,14 @@ function large() {
 
 // CODE HERE...
 
-
+function forgetter(name_) {
+  let name=name_;
+  let remember=[];
+  return function rememberall(param) {
+    remember.push(param);
+    return {name: name, remember: remember }
+  }
+}
 
 // *************
 // * PROBLEM 6 *
@@ -156,3 +183,22 @@ function large() {
 // NOTE: Neither hunger nor danger should be able to exceed 100 or drop below 0.
 
 // CODE HERE...
+
+function frodo(startingHungerValue, startingDangerValue) {
+  let startingHungerValue_ = startingHungerValue;
+  let startingDangerValue_ = startingDangerValue;
+  return {
+    dinnerOverFire : () => { 
+      startingHungerValue_ -= 25; 
+      startingDangerValue_ += 40; 
+      let objt = { hunger:  startingHungerValue_, danger: startingDangerValue_ };
+      console.log(objt)
+
+      return objt;
+    },
+     hidingInBush : () => { 
+       return { hunger:  startingHungerValue_ + 35, danger: startingDangerValue - 20}
+    }
+  }
+  
+}

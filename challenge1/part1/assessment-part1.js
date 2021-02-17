@@ -116,6 +116,7 @@ let mustang = new Vehicle();
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
 
+//"hola".grammarPolice()
 
 (function () {
   String.prototype.grammarPolice = function () {

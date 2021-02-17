@@ -37,13 +37,41 @@
         console.log(sayHey('kait'));
 
 
-        function createGame(gameName) {
-            let score = 0;
-            return function win() {
-                score++;
+        function createGame(gameName, defaultScore = 0) {
+            let score = defaultScore;
+
+            function print() {
                 return `Your name ${gameName} score is ${score}`;
             }
+
+            return function win() {
+                score++;
+                console.log('>>', score);
+                
+                return print();
+            }
         }
+
+
+        // class Animal {
+        //     private score;
+        //     private gameName;
+
+        //     constructor(gameName, score = 0) {
+        //         this.gameName=gameName;
+        //         this.score = score;
+        //     }
+
+        //     win() {
+        //         this.score++;
+        //         return this.print();
+        //     }
+
+        //     private print() {
+        //         return `Your name ${gameName} score is ${score}`;
+        //     }
+        // }
+        const animal = new Animal(2);
 
         const hockeyGame = createGame('Hockey');
         const soccerGame = createGame('Soccer');

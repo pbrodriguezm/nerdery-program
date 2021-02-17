@@ -40,11 +40,14 @@ describe('Part 2:', function() {
 
     it('should return function with correct context', function() {
       var crew = { workerPopulation: 342953 }
+      
       var capacity = function() {
       	return { crew: this.workerPopulation }
       }
       var crewPop = deathStar(capacity, crew);
+      
       var crewPopCall = crewPop();
+
       expect(crewPopCall.crew).toEqual(342953)
       expect(deathStar(capacity, crew)).toEqual(jasmine.any(Function));
       expect(crewPop()).toEqual(jasmine.any(Object))
