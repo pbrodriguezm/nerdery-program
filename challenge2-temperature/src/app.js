@@ -17,8 +17,12 @@ function processReadings(readings) {
     });
 }
 function getTemperatureSummary(date, city) {
+    //filter city
     var foundElements = processMapTemp.get(city);
-    if (!foundElements)
+    //filter date
+    foundElements = foundElements.filter(function (e) { if (e.time.toString() == date)
+        return e; });
+    if (foundElements.length == 0)
         return null;
     var result = {};
     result.first = foundElements.reduce(function (previous, next) { return previous.time < next.time ? previous : next; }).temperature;

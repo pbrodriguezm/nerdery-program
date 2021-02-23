@@ -14,8 +14,13 @@ function processReadings(readings: TemperatureReading[]): void {
 }
 
 function getTemperatureSummary(date: string, city: string): TemperatureSummary {
+    //filter city
     let foundElements: TemperatureReading[] = processMapTemp.get(city);
-    if(!foundElements) return null;
+
+    //filter date
+    foundElements = foundElements.filter(e => {if (e.time.toString() == date) return e; }); 
+  
+    if(foundElements.length == 0) return null;
 
     let result: TemperatureSummary = {};
 
